@@ -1,1 +1,9 @@
+{% load static %}
+
+
 <h1>{{ user.username }}</h1>
+{% if user.image %}
+   <img src="{{ user.profile.image.url }}"  alt="{{ user.username }}" width="150" height="150">
+{% else %}
+    <img src="/media/prof.jpg" alt="Default Image" width="150" height="150">
+{% endif %}

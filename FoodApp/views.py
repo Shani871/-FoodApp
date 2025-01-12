@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
+from django.views.generic import ListView
+
 from FoodApp.forms import ItemForm
 from FoodApp.models import Item
 
@@ -7,6 +9,17 @@ from FoodApp.models import Item
 def home(request):
     items = Item.objects.all()
     return render(request, 'home.html', {'items': items})  # Fixed context key to 'items'
+
+# class IndexView(ListView):
+#     model = Item
+#     templates_name = 'home.html'
+#     context_object_name = 'items'
+#
+
+
+
+
+
 
 # Detail view: Fetch a single item by ID and search functionality
 def detail(request, item_id):
